@@ -1,0 +1,114 @@
+# ------------------------------------------------------------------------------
+# JourneyStack - n8n Production Deployment (Queue Mode)
+# ------------------------------------------------------------------------------
+# n8n (main web process) receives webhooks and pushes jobs to Redis.
+# n8n-worker instances pull jobs from Redis and run them.
+# PostgreSQL stores executions and Wait-node state.
+#
+# All secrets and hosts come from environment variables (shell or an
+# uncommitted .env file). Required:
+#   POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, REDIS_PASSWORD,
+#   N8N_ENCRYPTION_KEY, N8N_HOST, WEBHOOK_URL
+#
+# Scale workers: docker compose -f docker-compose-queue-mode.yaml up -d --scale n8n-worker=4
+# ------------------------------------------------------------------------------
+
+x-n8n-env: &n8n-env
+  NODE_ENV: production
+  GENERIC_TIMEZONE: UTC
+  N8N_HOST: ${N8N_HOST:?N8N_HOST is required}
+  N8N_PORT: 5678
+  N8N_PROTOCOL: https
+  WEBHOOK_URL: ${WEBHOOK_URL:?WEBHOOK_URL is required}
+  N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:?N8N_ENCRYPTION_KEY is required}
+
+  # Database
+  DB_TYPE: postgresdb
+  DB_POSTGRESDB_HOST: postgres
+  DB_POSTGRESDB_PORT: 5432
+  DB_POSTGRESDB_DATABASE: ${POSTGRES_DB:?POSTGRES_DB is required}
+  DB_POSTGRESDB_USER: ${POSTGRES_USER:?POSTGRES_USER is required}
+  DB_POSTGRESDB_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+
+  # Queue mode: persistent Redis-backed queue replaces the in-memory queue
+  EXECUTIONS_MODE: queue
+  QUEUE_BULL_REDIS_HOST: redis
+  QUEUE_BULL_REDIS_PORT: 6379
+  QUEUE_BULL_REDIS_PASSWORD: ${REDIS_PASSWORD:?REDIS_PASSWORD is required}
+
+  # Execution data
+  EXECUTIONS_DATA_SAVE_ON_ERROR: all
+  EXECUTIONS_DATA_SAVE_ON_SUCCESS: none
+  EXECUTIONS_DATA_SAVE_ON_PROGRESS: "true"
+  N8N_PAYLOAD_SIZE_MAX: 16
+
+volumes:
+  n8n_data:
+  db_data:
+  redis_data:
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER is required}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+      POSTGRES_DB: ${POSTGRES_DB:?POSTGRES_DB is required}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Message broker. AOF persistence keeps queued jobs across restarts.
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["sh", "-c", "redis-server --appendonly yes --requirepass \"$$REDIS_PASSWORD\""]
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?REDIS_PASSWORD is required}
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"$$REDIS_PASSWORD\" ping | grep PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Main web process: UI, API, webhook intake; enqueues executions in Redis.
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      <<: *n8n-env
+    volumes:
+      - n8n_data:/home/node/.n8n
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    # Healthy only after DB migrations finish, so workers do not race them.
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:5678/healthz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  # Execution processing: pulls jobs from Redis and runs them.
+  n8n-worker:
+    image: docker.n8n.io/n8nio/n8n:latest
+    restart: unless-stopped
+    command: worker
+    environment:
+      <<: *n8n-env
+    deploy:
+      replicas: 2
+    depends_on:
+      n8n:
+        condition: service_healthy

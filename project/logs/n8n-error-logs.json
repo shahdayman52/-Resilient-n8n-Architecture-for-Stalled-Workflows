@@ -1,0 +1,598 @@
+[
+  {
+    "timestamp": "2023-11-18T19:01:12.441Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852930",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Flight modification request received for booking JS-88219"
+  },
+  {
+    "timestamp": "2023-11-18T19:01:13.892Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852930",
+      "nodeName": "Amadeus API Sync"
+    },
+    "message": "API Sync completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:01:14.005Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852930",
+      "nodeName": "Postgres DB"
+    },
+    "message": "Execution completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:05:22.110Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "852931",
+      "nodeName": "Webhook"
+    },
+    "message": "Refund request received for transaction TXN-99120 ($450.00)"
+  },
+  {
+    "timestamp": "2023-11-18T19:05:22.560Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "852931",
+      "nodeName": "Wait for Human Approval"
+    },
+    "message": "Execution put to sleep. Awaiting manager approval via webhook."
+  },
+  {
+    "timestamp": "2023-11-18T19:08:44.301Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_hotel_sync",
+      "executionId": "852932",
+      "nodeName": "Webhook"
+    },
+    "message": "Inventory update received from Expedia"
+  },
+  {
+    "timestamp": "2023-11-18T19:08:45.021Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_hotel_sync",
+      "executionId": "852932",
+      "nodeName": "Postgres DB"
+    },
+    "message": "Inventory records updated successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:08:45.105Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_hotel_sync",
+      "executionId": "852932",
+      "nodeName": "End Node"
+    },
+    "message": "Execution completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:12:10.999Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852933",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Flight modification request received for booking JS-88220"
+  },
+  {
+    "timestamp": "2023-11-18T19:12:12.304Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852933",
+      "nodeName": "Amadeus API Sync"
+    },
+    "message": "API Sync completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:12:12.502Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852933",
+      "nodeName": "End Node"
+    },
+    "message": "Execution completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:15:33.421Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_customer_support_ai",
+      "executionId": "852934",
+      "nodeName": "Zendesk Trigger"
+    },
+    "message": "Chat payload received from customer"
+  },
+  {
+    "timestamp": "2023-11-18T19:15:35.112Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_customer_support_ai",
+      "executionId": "852934",
+      "nodeName": "OpenAI Chat"
+    },
+    "message": "Intent classified as 'Baggage Inquiry'"
+  },
+  {
+    "timestamp": "2023-11-18T19:15:35.405Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_customer_support_ai",
+      "executionId": "852934",
+      "nodeName": "Reply Node"
+    },
+    "message": "Execution completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:20:01.002Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "852935",
+      "nodeName": "Webhook"
+    },
+    "message": "Refund request received for transaction TXN-99188 ($1,200.00)"
+  },
+  {
+    "timestamp": "2023-11-18T19:20:01.442Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "852935",
+      "nodeName": "Wait for Human Approval"
+    },
+    "message": "Execution put to sleep. Awaiting manager approval via webhook."
+  },
+  {
+    "timestamp": "2023-11-18T19:22:15.111Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852936",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Flight modification request received for booking JS-88240"
+  },
+  {
+    "timestamp": "2023-11-18T19:22:16.883Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852936",
+      "nodeName": "End Node"
+    },
+    "message": "Execution completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:25:40.000Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_hotel_sync",
+      "executionId": "852937",
+      "nodeName": "Webhook"
+    },
+    "message": "Inventory update received from Booking.com"
+  },
+  {
+    "timestamp": "2023-11-18T19:25:41.229Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_hotel_sync",
+      "executionId": "852937",
+      "nodeName": "Postgres DB"
+    },
+    "message": "Execution completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:35:01.100Z",
+    "level": "WARNING",
+    "context": {
+      "system": "memory_monitor"
+    },
+    "message": "Memory usage critical: 75% heap utilized. High volume of incoming webhook requests detected."
+  },
+  {
+    "timestamp": "2023-11-18T19:35:05.411Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852938",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Bulk flight modification batch 1"
+  },
+  {
+    "timestamp": "2023-11-18T19:35:05.420Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852939",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Bulk flight modification batch 2"
+  },
+  {
+    "timestamp": "2023-11-18T19:35:05.425Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852940",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Bulk flight modification batch 3"
+  },
+  {
+    "timestamp": "2023-11-18T19:38:12.000Z",
+    "level": "WARNING",
+    "context": {
+      "system": "memory_monitor"
+    },
+    "message": "Memory usage critical: 88% heap utilized"
+  },
+  {
+    "timestamp": "2023-11-18T19:38:13.111Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852941",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Bulk flight modification batch 4"
+  },
+  {
+    "timestamp": "2023-11-18T19:38:13.125Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852942",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Bulk flight modification batch 5"
+  },
+  {
+    "timestamp": "2023-11-18T19:40:01.300Z",
+    "level": "WARNING",
+    "context": {
+      "system": "queue_monitor"
+    },
+    "message": "In-memory execution queue backing up: 540+ items pending processing."
+  },
+  {
+    "timestamp": "2023-11-18T19:40:02.500Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852943",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Bulk flight modification batch 6"
+  },
+  {
+    "timestamp": "2023-11-18T19:41:00.111Z",
+    "level": "WARNING",
+    "context": {
+      "system": "memory_monitor"
+    },
+    "message": "Memory usage critical: 96% heap utilized"
+  },
+  {
+    "timestamp": "2023-11-18T19:41:25.882Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "nodeName": "Webhook"
+    },
+    "message": "Dropped webhook event: Queue capacity overflow, execution rejected for incoming payload."
+  },
+  {
+    "timestamp": "2023-11-18T19:41:26.104Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "nodeName": "Webhook"
+    },
+    "message": "Dropped webhook event: Queue capacity overflow, execution rejected for incoming payload."
+  },
+  {
+    "timestamp": "2023-11-18T19:41:26.442Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_hotel_sync",
+      "nodeName": "Webhook"
+    },
+    "message": "Dropped webhook event: Queue capacity overflow, execution rejected for incoming payload."
+  },
+  {
+    "timestamp": "2023-11-18T19:42:01.000Z",
+    "level": "FATAL",
+    "context": {
+      "system": "node_process"
+    },
+    "message": "JavaScript heap out of memory"
+  },
+  {
+    "timestamp": "2023-11-18T19:42:01.102Z",
+    "level": "FATAL",
+    "context": {
+      "system": "node_process"
+    },
+    "message": "Process exiting due to OOM exception. PID: 1422"
+  },
+  {
+    "timestamp": "2023-11-18T19:45:00.000Z",
+    "level": "INFO",
+    "context": {
+      "system": "startup"
+    },
+    "message": "n8n starting... Initializing core services."
+  },
+  {
+    "timestamp": "2023-11-18T19:45:02.100Z",
+    "level": "INFO",
+    "context": {
+      "system": "startup"
+    },
+    "message": "Database connection established successfully."
+  },
+  {
+    "timestamp": "2023-11-18T19:45:05.800Z",
+    "level": "INFO",
+    "context": {
+      "system": "startup"
+    },
+    "message": "n8n ready to receive connections. Webhooks activated."
+  },
+  {
+    "timestamp": "2023-11-18T19:45:10.111Z",
+    "level": "ERROR",
+    "context": {
+      "system": "recovery_manager"
+    },
+    "message": "Startup recovery failed: In-memory queue cleared during restart. 542 pending jobs permanently lost."
+  },
+  {
+    "timestamp": "2023-11-18T19:45:10.550Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852938"
+    },
+    "message": "Active execution lost during restart. In-memory state unrecoverable."
+  },
+  {
+    "timestamp": "2023-11-18T19:45:10.552Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852939"
+    },
+    "message": "Active execution lost during restart. In-memory state unrecoverable."
+  },
+  {
+    "timestamp": "2023-11-18T19:45:10.555Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852940"
+    },
+    "message": "Active execution lost during restart. In-memory state unrecoverable."
+  },
+  {
+    "timestamp": "2023-11-18T19:45:10.559Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852941"
+    },
+    "message": "Active execution lost during restart. In-memory state unrecoverable."
+  },
+  {
+    "timestamp": "2023-11-18T19:46:12.302Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "nodeName": "Webhook"
+    },
+    "message": "Manager resume webhook triggered for execution 852931 (Approved)"
+  },
+  {
+    "timestamp": "2023-11-18T19:46:12.440Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "852931",
+      "nodeName": "Wait for Human Approval"
+    },
+    "message": "Failed to resume execution: Wait node state not found in memory. Execution context was dropped during container restart."
+  },
+  {
+    "timestamp": "2023-11-18T19:47:05.101Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "nodeName": "Webhook"
+    },
+    "message": "Manager resume webhook triggered for execution 852935 (Rejected)"
+  },
+  {
+    "timestamp": "2023-11-18T19:47:05.155Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "852935",
+      "nodeName": "Wait for Human Approval"
+    },
+    "message": "Failed to resume execution: Wait node state not found in memory. Execution context was dropped during container restart."
+  },
+  {
+    "timestamp": "2023-11-18T19:50:33.100Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "nodeName": "Webhook"
+    },
+    "message": "Manager resume webhook triggered for execution 841002 (Approved)"
+  },
+  {
+    "timestamp": "2023-11-18T19:50:33.220Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "841002",
+      "nodeName": "Wait for Human Approval"
+    },
+    "message": "Failed to resume execution: Wait node state not found in memory. Execution context was dropped during container restart."
+  },
+  {
+    "timestamp": "2023-11-18T19:51:14.331Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852946",
+      "nodeName": "Webhook"
+    },
+    "message": "Execution started: Flight modification request received for booking JS-88301"
+  },
+  {
+    "timestamp": "2023-11-18T19:51:16.442Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852946",
+      "nodeName": "Amadeus API Sync"
+    },
+    "message": "API Sync completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:52:05.550Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "nodeName": "Webhook"
+    },
+    "message": "Manager resume webhook triggered for execution 841099 (Approved)"
+  },
+  {
+    "timestamp": "2023-11-18T19:52:05.670Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "841099",
+      "nodeName": "Wait for Human Approval"
+    },
+    "message": "Failed to resume execution: Wait node state not found in memory. Execution context was dropped during container restart."
+  },
+  {
+    "timestamp": "2023-11-18T19:54:11.100Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_flight_booking_mod",
+      "executionId": "852946",
+      "nodeName": "End Node"
+    },
+    "message": "Execution completed successfully"
+  },
+  {
+    "timestamp": "2023-11-18T19:55:01.000Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "nodeName": "Webhook"
+    },
+    "message": "Manager resume webhook triggered for execution 830591 (Rejected)"
+  },
+  {
+    "timestamp": "2023-11-18T19:55:01.120Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "830591",
+      "nodeName": "Wait for Human Approval"
+    },
+    "message": "Failed to resume execution: Wait node state not found in memory. Execution context was dropped during container restart."
+  },
+  {
+    "timestamp": "2023-11-18T19:55:20.100Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "nodeName": "Webhook"
+    },
+    "message": "Manager resume webhook triggered for execution 830605 (Approved)"
+  },
+  {
+    "timestamp": "2023-11-18T19:55:20.210Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "830605",
+      "nodeName": "Wait for Human Approval"
+    },
+    "message": "Failed to resume execution: Wait node state not found in memory. Execution context was dropped during container restart."
+  },
+  {
+    "timestamp": "2023-11-18T19:58:11.000Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "nodeName": "Webhook"
+    },
+    "message": "Manager resume webhook triggered for execution 840111 (Approved)"
+  },
+  {
+    "timestamp": "2023-11-18T19:58:11.115Z",
+    "level": "ERROR",
+    "context": {
+      "workflowId": "wf_refund_approval",
+      "executionId": "840111",
+      "nodeName": "Wait for Human Approval"
+    },
+    "message": "Failed to resume execution: Wait node state not found in memory. Execution context was dropped during container restart."
+  },
+  {
+    "timestamp": "2023-11-18T20:01:45.333Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_hotel_sync",
+      "executionId": "852947",
+      "nodeName": "Webhook"
+    },
+    "message": "Inventory update received from Agoda"
+  },
+  {
+    "timestamp": "2023-11-18T20:01:46.002Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_hotel_sync",
+      "executionId": "852947",
+      "nodeName": "Postgres DB"
+    },
+    "message": "Inventory records updated successfully"
+  },
+  {
+    "timestamp": "2023-11-18T20:01:46.105Z",
+    "level": "INFO",
+    "context": {
+      "workflowId": "wf_hotel_sync",
+      "executionId": "852947",
+      "nodeName": "End Node"
+    },
+    "message": "Execution completed successfully"
+  }
+]
